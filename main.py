@@ -57,7 +57,7 @@ class RunCommand(EventListener):
         if shell == "fish":
             subprocess.run([f'{terminal} {exec} {envUserShell} -c "{command}; {envUserShell}"'], shell=True)
         else:
-            subprocess.run([f'{terminal} {exec} env NO_FASTFETCH=1 {envUserShell} -i -c "{command}; unset NO_FASTFETCH; exec {envUserShell} -i"'], shell=True)
+            subprocess.run([f'{terminal} {exec} env NO_FASTFETCH=1 {envUserShell} -i -c "{command}; exec {envUserShell} -i"'], shell=True)
 
         return HideWindowAction()
 
